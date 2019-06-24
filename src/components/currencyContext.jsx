@@ -4,10 +4,12 @@ import axios from "axios";
 export const CurrencyDataContext = createContext();
 
 export const CurrencyDataProvider = props => {
+  // initialization of state data to be used in react context
   const [data, setData] = useState([]);
   const [firstSet, setFirstState] = useState([]);
   const [baseCurrency, setBaseCurrency] = useState("");
 
+  // Api call and setting up the response data
   useEffect(() => {
     axios
       .get("https://api.exchangeratesapi.io/latest?base=USD")

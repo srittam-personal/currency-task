@@ -6,6 +6,7 @@ const AddCurrency = () => {
   const [currencyVal, setCurrency] = useState("");
   const getCurrency = e => setCurrency(e.target.value);
 
+  // filtering selected currency from the data object
   const filterCurrency = () => {
     let currencyInputVal = currencyVal.toUpperCase();
 
@@ -18,19 +19,22 @@ const AddCurrency = () => {
     return filteredCurrency[0];
   };
 
+  // adding new currency to the list
   const addCurrency = e => {
     e.preventDefault();
-    console.log(currencyVal);
+
     let filterResult = filterCurrency(),
       baseVal = document.querySelector(".base-val").value,
       isElePresent = false;
 
+    // if selected currency already available in the list
     firstSet.map(existingCurrency => {
       if (existingCurrency[0] == currencyVal) {
         isElePresent = true;
       }
     });
 
+    // checkikng if the selected currency alreadu added to the list
     if (!isElePresent) {
       setFirstState([
         ...firstSet,
