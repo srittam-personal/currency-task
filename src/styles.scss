@@ -1,0 +1,215 @@
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body{
+  font-size: 14px;
+}
+
+ul,li{
+  list-style: none;
+}
+
+.button{
+  background: none;
+  border: 1px solid #000;
+  box-shadow: none;
+  font-size: 11px;
+  color: #000;
+  text-decoration: none;
+  padding: 12px 10px 12px 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  &:hover{
+    background: #000;
+    color: #fff;
+  }
+}
+
+.button-secondary{
+  background: #000;
+  border: 1px solid #000;
+  box-shadow: none;
+  font-size: 11px;
+  color: #fff;
+  text-decoration: none;
+  padding: 11px 10px 11px 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  &:hover{
+    background: none;
+    color: #000;
+  }
+}
+
+#root{
+  max-width: 540px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.currency-form{
+  .currency-selector-section{
+    display: none;
+  }
+  &.active{
+    .currency-selector-section{
+      display: block;
+    }
+    .add-currency-item{
+      display: none;
+    }
+  } 
+}
+
+.base-curency,.currency-list,.currency-form{
+  padding: 10px;
+  border: 1px solid;
+}
+
+.base-curency{  
+  border-bottom: 1px solid;
+  margin: 0;
+  background: #fff;
+  label{
+    font-weight: bold;
+  }
+  .base-val{
+    max-width: 100px;
+    width: 100%;
+    float: right;
+    padding: 5px 10px;
+    border: 1px solid;
+  }
+  &:after{
+    clear: both;
+    content: "";
+    display: block;
+  }
+  .usd-label{
+    display: block;
+    padding-bottom: 10px;
+  }
+}
+
+.currency-list{
+  .item{
+    border: 1px solid;
+    border-bottom: 0;
+    .currency-details{
+      vertical-align: middle;
+      display: inline-block;
+      width: 85%;
+      border-right: 1px solid;
+      padding: 10px 5px;
+      .currency-price{
+        float: right;
+      }
+      .currency-default-price{
+        padding-top: 10px;
+        font-size: 12px;
+      }
+      .currency-code{
+        font-weight: 600;
+      }
+      &+span{
+        vertical-align: middle;
+        display: inline-block;
+        width: 15%;
+        text-align: center;
+        cursor: pointer;
+        line-height: 60px;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 0;
+        position: relative;
+        &:after{
+          content: "X";
+          position: absolute;
+          font-size: 19px;
+          font-weight: normal;
+          left: 50%;
+          width: 10px;
+          height: 10px;
+          color: #000;
+          z-index: 9999999;
+          top: 0;
+          font-family: Arial, sans-serif;
+          transform: translateX(-50%);
+        }
+      }
+      .currency-code-price{
+        font-weight: 600;
+      }
+    }
+    &:last-child{
+      border-bottom: 1px solid;
+    }
+  }
+}
+
+.currency-form{
+  border-top: 0;
+  padding: 20px 10px ;
+}
+
+.currency-selector{
+  height: 36px;
+  border: 1px solid;
+  border-right: 0;
+  width: 80%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.submit-button{
+  width: 20%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.add-currency-item{
+    width: 100%;  
+    display: block;    
+}
+
+@media  (max-width:767px){
+  .base-curency{
+    position: fixed;
+    max-width: 100%;
+    width: 100%;
+    left: 0;
+    top:0;
+    border: 0;
+    border-bottom: 1px solid;
+  }
+  #root{
+    padding: 0 10px;
+  }
+  .currency-list{
+    margin-top: 22%;
+    border-top: 0;
+    padding-bottom: 38%;
+  } 
+  .currency-form{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: #fff;
+  }
+
+  .currency-form{
+    border-top: 1px solid;
+  }
+}
